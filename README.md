@@ -3,7 +3,11 @@ Under this repo, we have done a step by step implementation to make a passcode b
 
 ## OBJECTIVE 
 
+The core objective of the project undertaken is to develop a RISCV core to perform authentication operation of a locker and check for whether the storage space is available. The system upon the entry of correct passcode will look if the storage space is available, if yes, the system turns on the green LED. In case of wrong passcode, the system flags the occurance with a red LED.
+
 ## PROCEDURE
+
+The locker authentication project is based on simple passcode. We have defined a 4 bit passcode, ```1101```. To take the passcode inputs, we will implement push down switches, ie we have an array of 4 switches. When the correct passcode is entered we move ahead with the space verification. In case of wrong passcode, the system flags it. In the project, we have taken the locker to have two comparments. Each compartment is one storage unit. To identify if a storage unit is available, we will integrate obstcle detection, using proximity sensors. Thus, in the given case, two units of proximity sensors are required. Henceforth, we have four cases at our hands, both available, either one avaliable and none. The following will be flagged using corresponding LEDs. 
 
 ## BLOCK DIAGRAM  
 
@@ -11,7 +15,16 @@ Under this repo, we have done a step by step implementation to make a passcode b
 
 ***Testing***
 - We first compile the C code using gcc and check the expected outcomes for testcases.
-- After this, we define the inputs and outputs using ```asm``` to link the assemply level inputs and outputs and store them over variables.
+
+  ```bash
+  gcc locker.c
+  ./a.out
+  ```
+
+ ![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/85b759cc-87ff-49d4-9cc2-bad9282c8c7f)
+
+
+- After this, we define the inputs and outputs using ```asm``` to link the assemply level inputs and outputs and store them over variables in C.
 
 ***C Code***
 ```bash
