@@ -5,11 +5,13 @@ Under this repo, we have done a step by step implementation to make a passcode b
 
 ## PROCEDURE
 
-## BLOCK DIAGRAM 
+## BLOCK DIAGRAM  
 
-### TESTING 
+## CODE
 
-### CODE
+***Testing***
+- We first compile the C code using gcc and check the expected outcomes for testcases.
+- After this, we define the inputs and outputs using ```asm``` to link the assemply level inputs and outputs and store them over variables.
 
 ***C Code***
 ```bash
