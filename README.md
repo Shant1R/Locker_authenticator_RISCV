@@ -1,5 +1,9 @@
 # Locker_authenticator_RISCV
-Under this repo, we have done a step by step implementation to make a passcode based authentication system for lockers based in RISCV Architecture summarizes the progress made towards the completion. 
+
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/d3e27299-3bad-4e8b-b5df-02495fb6f521)
+
+
+Under this repository, we have done a step by step implementation to make a passcode based authentication system for lockers based in RISCV Architecture summarizes the progress made towards the completion. 
 
 ## OBJECTIVE 
 
@@ -30,6 +34,9 @@ The locker authentication project is based on simple passcode. We have defined a
 - After this, we define the inputs and outputs using ```asm``` to link the assemply level inputs and outputs and store them over variables in C.
 
 ***C Code***
+
+C code implementing the above block diagram.
+
 ```bash
 #include <stdio.h>
 void read();
@@ -176,6 +183,8 @@ void authenticate()
 ```
 
 ***Assembly Code***
+
+Compile the C code using RISCV-V GNU Toolchain and dump the assembly code into ```locker.o```, the contents of which are copied into a .txt file for easy veiwing.
 
 ```bash
 locker.o:     file format elf32-littleriscv
