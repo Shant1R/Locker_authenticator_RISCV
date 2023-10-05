@@ -11,6 +11,9 @@ The locker authentication project is based on simple passcode. We have defined a
 
 ## BLOCK DIAGRAM  
 
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/a31842ac-9181-4d9c-97ac-dc7d81b740d3)
+
+
 ## CODE
 
 ***Testing***
@@ -385,9 +388,9 @@ I would take this opportunity to sciencerly thank Mr. Kunal Gosh(Founder/VSD) fo
 - Mayank Kabra, iMtech, IIITB
 
 ## Reference
-https://github.com/The-OpenROAD-Project/OpenSTA.git
-https://github.com/kunalg123
-https://www.vsdiat.com
-https://github.com/SakethGajawada/RISCV-GNU
+- https://github.com/The-OpenROAD-Project/OpenSTA.git
+- https://github.com/kunalg123
+- https://www.vsdiat.com
+- https://github.com/SakethGajawada/RISCV-GNU
 
 
