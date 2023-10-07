@@ -49,7 +49,6 @@ int main()
 		read();
 	}
 	return 0;
-
 }
 
 void read()
@@ -77,38 +76,51 @@ void authenticate()
 	av1_reg = av1*256;
 	av2_reg = av2*512;
 	
-	asm(
+	asm volatile(
     	"or x30, x30, %0\n\t"  
     	"or x30, x30, %1\n\t"  
     	"or x30, x30, %2\n\t"
     	"or x30, x30, %3\n\t"  
-    	: "=r" (c_reg), "=r" (x_reg), "=r" (av1_reg), "=r" (av2_reg));
-	
+    	:
+    	: "r" (c_reg), "r" (x_reg), "r" (av1_reg), "r" (av2_reg));
+	: "x30" 
+	);
 		
-	asm(
+	asm volatile(
 	"andi %0, x30, 0x01\n\t"
-	: "=r" (p1));
+	: "=r" (p1)
+	:
+	:);
 	
-	asm(
+	asm volatile(
 	"andi %0, x30, 0x02\n\t"
-	: "=r" (p2));
+	: "=r" (p2)
+	:
+	:);
 
-	asm(
+	asm volatile(
 	"andi %0, x30, 0x04\n\t"
-	: "=r" (p3));
+	: "=r" (p3)
+	:
+	:);
 
-	asm(
+	asm volatile(
 	"andi %0, x30, 0x08\n\t"
-	: "=r" (p4));
+	: "=r" (p4)
+	:
+	:);
 
-	asm(
+	asm volatile(
 	"andi %0, x30, 0x10\n\t"
-	: "=r" (s1));
+	: "=r" (s1)
+	:
+	:);
 
-	
-	asm(
+	asm volatile(
 	"andi %0, x30, 0x20\n\t"
-	: "=r" (s2));
+	: "=r" (s2)
+	:
+	:);
 	
 	if( p1 && p2 && (!p3) && p4 )  //locker password --> 1101
 	{
@@ -150,13 +162,16 @@ void authenticate()
 		av1_reg = av1*256;
 		av2_reg = av2*512;
 	
-		asm(
+		asm volatile(
     		"or x30, x30, %0\n\t"  
     		"or x30, x30, %1\n\t"  
     		"or x30, x30, %2\n\t"
     		"or x30, x30, %3\n\t"  
-    		: "=r" (c_reg), "=r" (x_reg), "=r" (av1_reg), "=r" (av2_reg));
-		
+    		:
+    		: "r" (c_reg), "r" (x_reg), "r" (av1_reg), "r" (av2_reg));
+		: "x30" 
+		);
+	
 	}	
 	else
 	{
@@ -170,16 +185,18 @@ void authenticate()
 		av1_reg = av1*256;
 		av2_reg = av2*512;
 	
-		asm(
+		asm volatile(
     		"or x30, x30, %0\n\t"  
     		"or x30, x30, %1\n\t"  
     		"or x30, x30, %2\n\t"
     		"or x30, x30, %3\n\t"  
-    		: "=r" (c_reg), "=r" (x_reg), "=r" (av1_reg), "=r" (av2_reg));
+    		:
+    		: "r" (c_reg), "r" (x_reg), "r" (av1_reg), "r" (av2_reg));
+		: "x30" 
+		);
+
 	}
 }
-
-
 ```
 
 ***Assembly Code***
