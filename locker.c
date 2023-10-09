@@ -1,21 +1,13 @@
-#include <stdio.h>
-void read();
 void authenticate();
 	
 int main()
 {
 	while(1)
 	{
-		read();
+		authenticate();
 	}
 	return 0;
 
-}
-
-void read()
-{
-	
-	authenticate();
 }
 
 void authenticate()
@@ -43,7 +35,7 @@ void authenticate()
     	"or x30, x30, %2\n\t"
     	"or x30, x30, %3\n\t"  
     	:
-    	: "r" (c_reg), "r" (x_reg), "r" (av1_reg), "r" (av2_reg));
+    	: "r" (c_reg), "r" (x_reg), "r" (av1_reg), "r" (av2_reg)
 	: "x30" 
 	);
 		
@@ -129,7 +121,7 @@ void authenticate()
     		"or x30, x30, %2\n\t"
     		"or x30, x30, %3\n\t"  
     		:
-    		: "r" (c_reg), "r" (x_reg), "r" (av1_reg), "r" (av2_reg));
+    		: "r" (c_reg), "r" (x_reg), "r" (av1_reg), "r" (av2_reg)
 		: "x30" 
 		);
 	
@@ -152,14 +144,9 @@ void authenticate()
     		"or x30, x30, %2\n\t"
     		"or x30, x30, %3\n\t"  
     		:
-    		: "r" (c_reg), "r" (x_reg), "r" (av1_reg), "r" (av2_reg));
+    		: "r" (c_reg), "r" (x_reg), "r" (av1_reg), "r" (av2_reg)
 		: "x30" 
 		);
-
 	}
-	
-	
-
-
 }
 
