@@ -1,13 +1,14 @@
 Number of different instructions: 10
-List of unique instructions:
-j
-and
-or
-bnez
-add
-li
-beqz
-lw
-sw
-sll
 
+List of unique instructions:
+
+bnez
+slli
+or
+lw
+addi
+sw
+beqz
+andi
+li
+j
