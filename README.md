@@ -382,17 +382,17 @@ We will perform functional simulation to test the functionality of the verilog c
 
 *Note -* The inputs for the processor are p1, p2, p3, p4, s1 and s2. The inputs are taken from LSB for the x30 registor, thus, the input format is given as ```{s2,s1,p4,p3,p2,p1}```. ie, the LSB bit is mapped to p1 and continues. Similar;y the output is generated as ```{av2,av1,x,c}```. 
 
-- Case with wrong passcode, expected output --> 2 (0010)
+- Case with wrong passcode, expected output - ```2 (0010)```
   
 - Case with correct passcode
 
-  - input --> 001011
+  - input - ```001011```, expexted output - ```D (1101)```
 
-  - input --> 011011
+  - input - ```011011```, expected output - ```9 (1001)```
 
-  - input --> 101011
+  - input - ```101011```, expected output - ```5 (0101)```
 
-  - input --> 111011 
+  - input - ```111011```, expected putput - ```1 (0001)```
     
 
 We have seen a few cases and verified the output. We can observe the instruction bit toggling and the input can be seen in the ```input_gpio_pins``` and input_write. We can see the output has been written in the ```output_gpio_pins``` and output_write. We can also observe the ```write_done``` being flagged once the output has been written. Thus we can conclude the processor code is working as expected and we can now move ahead with the synthesis and Gate level simulations.
