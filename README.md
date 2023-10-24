@@ -386,13 +386,13 @@ We will perform functional simulation to test the functionality of the verilog c
   
 - Case with correct passcode
 
-  - input --> 111011, expected output --> 1 (0001)
+  - input --> 001011
 
-  - input --> 101011, expected output --> 5 (0101)
+  - input --> 011011
 
-  - input --> 011011,
+  - input --> 101011
 
-  - input --> 001011, 
+  - input --> 111011 
     
 
 We have seen a few cases and verified the output. We can observe the instruction bit toggling and the input can be seen in the ```input_gpio_pins``` and input_write. We can see the output has been written in the ```output_gpio_pins``` and output_write. We can also observe the ```write_done``` being flagged once the output has been written. Thus we can conclude the processor code is working as expected and we can now move ahead with the synthesis and Gate level simulations.
