@@ -26,13 +26,14 @@ The locker authentication project is based on simple passcode. We have defined a
   gcc locker.c
   ./a.out
   ```
-
- ![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/85b759cc-87ff-49d4-9cc2-bad9282c8c7f)
+    ![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/85b759cc-87ff-49d4-9cc2-bad9282c8c7f)
 
 
 - After this, we define the inputs and outputs using ```asm``` to link the assemply level inputs and outputs and store them over variables in C.
 
-- Now, we spike the code to again check the functionality of the code. The test code can be found above as ```spike_tester.c```. We have taken 5 testcases, 4 for the correct passcode and one with incorrect passcode. The correct passcode is ```{p4,p3,p2,p1} -> {1011}```. The masked output format comes as ```{av2,av1,x,c,s2,s1,p4,p3,p2,p1}```, in which the 6 bits from LSB are input bits which get masked to 0 for the output, thus the masked output is displayed in the spike simulation comes as ```{av2,av1,x,c,0,0,0,0,0,0}```.
+- Now, we spike the code to again check the functionality of the code. The test code can be found above as ```spike_tester.c```. We have taken 5 testcases, 4 for the correct passcode and one with incorrect passcode. The correct passcode is ```{p4,p3,p2,p1} -> {1011}```.
+
+  The masked output format comes as ```{av2,av1,x,c,s2,s1,p4,p3,p2,p1}```, in which the 6 bits from LSB are input bits which get masked to 0 for the output, thus the masked output is displayed in the spike simulation comes as ```{av2,av1,x,c,0,0,0,0,0,0}```.
   
   - Case with wrong passcode, expected output - ```2 (0010)```, Masked Output - ```128 (0010000000)```
     ![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/b58197f4-6011-474f-bc0e-e423c3268455)
