@@ -18,10 +18,9 @@ The locker authentication project is based on simple passcode. We have defined a
 ![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/a31842ac-9181-4d9c-97ac-dc7d81b740d3)
 
 
-## CODE
+## CODE & LOGIC TESTING
 
-***Testing***
-- We first compile the C code using gcc and check the expected outcomes for testcases.
+- We first compile the C code using gcc and check the expected outcomes for testcases. This confirms, we have working code with no syntax errors and functional logical errors.
 
   ```bash
   gcc locker.c
@@ -33,10 +32,26 @@ The locker authentication project is based on simple passcode. We have defined a
 
 - After this, we define the inputs and outputs using ```asm``` to link the assemply level inputs and outputs and store them over variables in C.
 
-- Now, we spike the code to check the functionality of the code. The test code can be found above as ```spike_tester.c```.
+- Now, we spike the code to again check the functionality of the code. The test code can be found above as ```spike_tester.c```. We have taken 5 testcases, 4 for the correct passcode and one with incorrect passcode. The correct passcode is ```{p4,p3,p2,p1} -> {1011}```. The masked output format comes as ```{av2,av1,x,c,s2,s1,p4,p3,p2,p1}```, in which the 6 bits from LSB are input bits which get masked to 0 for the output, thus the masked output is displayed in the spike simulation comes as ```{av2,av1,x,c,0,0,0,0,0,0}```.
+  
+  - Case with wrong passcode, expected output - ```2 (0010)```, Masked Output - ```128 (0010000000)```
+    ![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/b58197f4-6011-474f-bc0e-e423c3268455)
+  
+  - Case with correct passcode
 
-![Screenshot from 2023-10-24 19-59-19](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/762c9c2e-2dee-40cb-9915-53ff97bd45bf)
+    - input - ```001011```, expexted output - ```D (1101)```, Masked Output - ```832 (1101000000)```
+      ![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/91cceeac-0e19-4af0-9c19-e31dcd6376b3)
 
+    - input - ```011011```, expected output - ```9 (1001)```, Masked Output - ```576 (1001000000)```
+      ![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/abb53627-c684-4f36-9d7b-1e100168644f)
+      
+    - input - ```101011```, expected output - ```5 (0101)```, Masked Output - ```320 (0101000000)```
+      ![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/a49fabae-5a9c-4bef-be8e-66ae977514f7)
+
+    - input - ```111011```, expected putput - ```1 (0001)```, Masked Output - ```64 (0001000000)```
+      ![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/a55f963f-17ac-4bbb-8e35-8c87cd15d29e)
+
+## CODE
 
 ***C Code***
 
