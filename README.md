@@ -429,19 +429,19 @@ We will consider the link: ```https://en.wikichip.org/wiki/risc-v/registers``` f
 
 Instructions verified.
 
-- addi	sp,sp,-80
+- ```addi	sp,sp,-80```
   
 ![Screenshot from 2023-10-28 15-33-15](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/a672516a-5391-4ada-8cf5-678ea1c24515)
 
-- addi	s0,sp,80
+- ```addi	s0,sp,80```
   
 ![Screenshot from 2023-10-28 15-35-12](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/d3bacb64-2622-48e7-bcba-630f5eeafb89)
 
-- li	a5,-961
+- ```li		a5,-961```
 
 ![Screenshot from 2023-10-28 15-37-44](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/665f6a6a-2ecb-4182-b15b-d9c92f50f3ad)
 
-- slli	a5,a5,0x6
+- ```slli	a5,a5,0x6```
 
 ![Screenshot from 2023-10-28 15-43-52](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/887017c5-a47b-4f7f-b687-f807f1637764)
 
