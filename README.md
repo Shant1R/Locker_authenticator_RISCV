@@ -424,6 +424,17 @@ We will perform functional simulation to test the functionality of the verilog c
 
 We have seen a few cases and verified the output. We can observe the instruction bit toggling and the input can be seen in the ```input_gpio_pins``` and input_write. We can see the output has been written in the ```output_gpio_pins``` and output_write. We can also observe the ```write_done``` being flagged once the output has been written. Thus we can conclude the processor code is working as expected and we can now move ahead with the synthesis and Gate level simulations.
 
+## Instruction Verification 
+We will consider the link: ```https://en.wikichip.org/wiki/risc-v/registers``` for refrence and decide the signal pins. Thus, according to the reference given, ```signal43``` is *zero* register, ```signal45``` is the *stack pointer*, ```signal51``` is the *s0* register and ```signal58``` is the *a5* register.
+
+Instructions verified.
+- addi	sp,sp,-80
+- addi	s0,sp,80
+- li	a5,-961
+- slli	a5,a5,0x6
+
+Some of the instructions in the above assembly code were tested in GTKWave and was verified.
+
 ## Word of Thanks
 I would take this opportunity to sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
 
