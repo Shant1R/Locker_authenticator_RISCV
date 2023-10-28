@@ -401,25 +401,25 @@ We will perform functional simulation to test the functionality of the verilog c
 
 - Case with wrong passcode, expected output - ```2 (0010)```
 
-  ![Screenshot from 2023-10-23 23-58-38](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/b8628b72-3634-4485-8278-9feb79224c8b)
+![Screenshot from 2023-10-23 23-58-38](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/b8628b72-3634-4485-8278-9feb79224c8b)
 
 - Case with correct passcode
 
   - input - ```001011```, expexted output - ```D (1101)```
     
-    ![Screenshot from 2023-10-24 20-10-07](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/bdc4bcc7-52ef-4584-9c08-813f258043b5)
+![Screenshot from 2023-10-24 20-10-07](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/bdc4bcc7-52ef-4584-9c08-813f258043b5)
 
   - input - ```011011```, expected output - ```9 (1001)```
 
-    ![Screenshot from 2023-10-24 23-51-35](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/f54196b4-7b90-4842-b820-3bf1a3bad206)
+![Screenshot from 2023-10-24 23-51-35](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/f54196b4-7b90-4842-b820-3bf1a3bad206)
 
   - input - ```101011```, expected output - ```5 (0101)```
 
-    ![Screenshot from 2023-10-24 00-25-09](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/db942d76-5210-45ae-92f0-3f55ebfacae0)
+![Screenshot from 2023-10-24 00-25-09](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/db942d76-5210-45ae-92f0-3f55ebfacae0)
 
   - input - ```111011```, expected putput - ```1 (0001)```
 
-    ![Screenshot from 2023-10-23 23-38-25](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/1b20e3b2-b764-4523-a87a-404aa3856b7c)
+![Screenshot from 2023-10-23 23-38-25](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/1b20e3b2-b764-4523-a87a-404aa3856b7c)
 
 
 We have seen a few cases and verified the output. We can observe the instruction bit toggling and the input can be seen in the ```input_gpio_pins``` and input_write. We can see the output has been written in the ```output_gpio_pins``` and output_write. We can also observe the ```write_done``` being flagged once the output has been written. Thus we can conclude the processor code is working as expected and we can now move ahead with the synthesis and Gate level simulations.
