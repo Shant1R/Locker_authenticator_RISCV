@@ -448,6 +448,48 @@ Instructions verified.
 ![Screenshot from 2023-10-28 15-43-52](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/887017c5-a47b-4f7f-b687-f807f1637764)
 
 
+## Synthesis
+
+Synthesis transforms the simple RTL design into a gate-level netlist with all the constraints as specified by the designer. In simple language, Synthesis is a process that converts the abstract form of design to a properly implemented chip in terms of logic gates.
+
+Synthesis takes place in the following steps:
+
+- Converting RTL into simple logic gates.
+- Mapping those gates to actual technology-dependent logic gates available in the technology libraries.
+- Optimizing the mapped netlist keeping the constraints set by the designer intact.
+
+## Gate Level Simulation
+
+GLS is generating the simulation output by running test bench with netlist file generated from synthesis as design under test. Netlist is logically same as RTL code, therefore, same test bench can be used for it.We perform this to verify logical correctness of the design after synthesizing it. Also ensuring the timing of the design is met. Folllowing are the commands to we need to convert Rtl code to netlist in yosys for that commands are :
+
+*Note -* The ```writing_inst_done``` is set to ```1``` to generate the testing processor. Once tested, we set it to ```0``` to generate the final synthesized netlist file under the name ```synth_processor_asic.v```. It can be found above in the repo. 
+
+```bash
+read_liberty -lib sky130_fd_sc_hd__tt_025C_1v80_256.lib 
+read_verilog processor.v 
+synth -top wrapper
+dfflibmap -liberty sky130_fd_sc_hd__tt_025C_1v80_256.lib 
+abc -liberty sky130_fd_sc_hd__tt_025C_1v80_256.lib
+write_verilog synth_processor_test.v
+```
+
+Folllowing are the commands to run the GLS simulation:
+
+```bash
+iverilog -o test synth_processor_test.v testbench.v sky130_sram_1kbyte_1rw1r_32x256_8.v sky130_fd_sc_hd.v primitives.v
+```
+
+The gtkwave output for the netlist should match the output waveform for the RTL design file. As netlist and design code have same set of inputs and outputs, we can use the same testbench and compare the waveforms.
+
+- Input given ```001011 [0B]```, expected output ```D```
+
+![Screenshot from 2023-10-30 23-23-44](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/d73ec679-c3cb-4687-9b35-84e11013c858)
+
+***Highlighted ```wrapper``` model after netlist creation.***
+
+![Screenshot from 2023-10-30 23-31-19](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/5d988214-c656-4940-9f35-6300b7ad13e7)
+
+
 
 ## Word of Thanks
 I would take this opportunity to sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
