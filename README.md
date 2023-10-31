@@ -432,18 +432,42 @@ Some of the instructions in the above assembly code were tested in GTKWave and w
 Instructions verified.
 
 - ```fb010113	addi	sp,sp,-80```
+
+  We can observe default value of *sp* is ```FF``` after that it becomes ```AF``` which is -80 in hexadecimal.
+
+  Input instruction - *00000000*
+
+  Output instruction - *FB010113*
   
 ![Screenshot from 2023-10-28 15-33-15](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/a672516a-5391-4ada-8cf5-678ea1c24515)
 
 - ```05010413	addi	s0,sp,80```
+
+  We can observe default value of *s0* regitser is ```00000000``` after that it becomes ```000000FF```.
+
+  Input instruction - *04812623*
+
+  Output instruction - *05010413*
   
 ![Screenshot from 2023-10-28 15-35-12](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/d3bacb64-2622-48e7-bcba-630f5eeafb89)
 
 - ```c3f00793	li	a5,-961```
 
+  We can observe default value of *a5* register is ```00000000```, which goes to ```FFFFFC3F```, which is -961 in hexadecimal.
+
+  Input instruction - *FE042023*
+
+  Output instruction - *C3F00793*
+  
 ![Screenshot from 2023-10-28 15-37-44](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/665f6a6a-2ecb-4182-b15b-d9c92f50f3ad)
 
 - ```00679793	slli	a5,a5,0x6```
+
+  We can observe the value for *a5* register is right shifted. Thus the initial value is ```FFFFFC3F```, and the final value is ```00000000```
+
+  Input instruction - *FEC42783*
+
+  Output instruction - *00679793*
 
 ![Screenshot from 2023-10-28 15-43-52](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/887017c5-a47b-4f7f-b687-f807f1637764)
 
