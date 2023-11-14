@@ -514,6 +514,56 @@ The gtkwave output for the netlist should match the output waveform for the RTL 
 ![Screenshot from 2023-10-30 23-31-19](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/5d988214-c656-4940-9f35-6300b7ad13e7)
 
 
+## Physical Design using OPENLANE 
+
+***OVERVIEW OF PHYSICAL DESIGN***
+
+Place and Route (PnR) is the core of any ASIC implementation and Openlane flow integrates into it several key open source tools which perform each of the respective stages of PnR. Below are the stages and the respective tools that are called by openlane for the functionalities as described:
+
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/c66ac9cb-2793-4c0b-a84d-66409d9c07ec)
+
+Below are the stages and the respective tools that are called by openlane for the functionalities as described:
+
+- Synthesis Generating gate-level netlist (yosys). Performing cell mapping (abc). Performing pre-layout STA (OpenSTA).
+
+-  Floorplanning Defining the core area for the macro as well as the cell sites and the tracks (init_fp). Placing the macro input and output ports (ioplacer). Generating the power distribution network (pdn).
+
+- Placement Performing global placement (RePLace). Perfroming detailed placement to legalize the globally placed components (OpenDP).
+
+- Clock Tree Synthesis (CTS) Synthesizing the clock tree (TritonCTS).
+
+- Routing Performing global routing to generate a guide file for the detailed router (FastRoute). Performing detailed routing (TritonRoute).
+
+- GDSII Generation Streaming out the final GDSII layout file from the routed def (Magic).
+
+***OPENLANE***
+
+OpenLane is an automated RTL to GDSII flow based on several components including OpenROAD, Yosys, Magic, Netgen, CVC, SPEF-Extractor, CU-GR, Klayout and a number of custom scripts for design exploration and optimization. The flow performs full ASIC implementation steps from RTL all the way down to GDSII.
+
+More about Openlane at : https://github.com/The-OpenROAD-Project/OpenLane
+
+***MAGIC***
+
+Magic is a venerable VLSI layout tool, written in the 1980's at Berkeley by John Ousterhout, now famous primarily for writing the scripting interpreter language Tcl. Due largely in part to its liberal Berkeley open-source license, magic has remained popular with universities and small companies. The open-source license has allowed VLSI engineers with a bent toward programming to implement clever ideas and help magic stay abreast of fabrication technology. However, it is the well thought-out core algorithms which lend to magic the greatest part of its popularity. Magic is widely cited as being the easiest tool to use for circuit layout, even for people who ultimately rely on commercial tools for their product design flow.
+
+More about magic at http://opencircuitdesign.com/magic/index.html
+
+## Preparing the Design
+Preparing the design and including the lef files: The commands to prepare the design and overwite in a existing run folder the reports and results along with the command to include the lef files is given below:
+
+```bash
+sed -i's/max_transition   :0.04/max_transition   :0.75'*/*.lib
+```
+*OpenLane Interactive Flow:*
+
+```bash
+make mount
+%./flow.tcl -interactive
+% package require openlane 0.9
+% prep -design project
+% run_synthesis; run_floorplan; run_placement; run_cts; gen_pdn; run_routing
+
+```
 
 ## Word of Thanks
 I would take this opportunity to sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
