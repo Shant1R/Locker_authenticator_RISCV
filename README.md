@@ -585,6 +585,50 @@ run_antenna_check
 ![Screenshot from 2023-11-14 13-46-36](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/88a55c5f-eaa4-4b91-900d-5a363e030011)
 
 
+## Reports 
+
+***SYNTHESIS***
+
+- Logic synthesis uses the RTL netlist to perform HDL technology mapping. The synthesis process is normally performed in two major steps:
+  - GTECH Mapping – Consists of mapping the HDL netlist to generic gates what are used to perform logical optimization based on AIGERs and other topologies created from the generic mapped netlist
+  - Technology Mapping – Consists of mapping the post-optimized GTECH netlist to standard cells described in the PDK.
+
+- To synthesize the code run the following command.
+```bash
+run_synthesis
+```
+
+![Screenshot from 2023-11-14 20-30-06](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/fda5e990-c067-4c4a-8dda-f28258a6d1a1)
+
+***FLOORPLAN***
+
+- Goal is to plan the silicon area and create a robust power distribution network (PDN) to power each of the individual components of the synthesized netlist. In addition, macro placement and blockages must be defined before placement occurs to ensure a legalized GDS file. In power planning we create the ring which is connected to the pads which brings power around the edges of the chip. We also include power straps to bring power to the middle of the chip using higher metal layers which reduces IR drop and electro-migration problem.
+
+- Following command helps to run floorplan:
+
+```bash
+run_floorplan
+```
+
+- to view the floorplan on Magic
+
+***PLACEMENT***
+
+- Place the standard cells on the floorplane rows, aligned with sites defined in the technology lef file. Placement is done in two steps: Global and Detailed. In Global placement tries to find optimal position for all cells but they may be overlapping and not aligned to rows, detailed placement takes the global placement and legalizes all of the placements trying to adhere to what the global placement wants. The next step in the OpenLANE ASIC flow is placement. The synthesized netlist is to be placed on the floorplan. Placement is perfomed in 2 stages:
+  - Global Placement
+  - Detailed Placement
+
+- Run the following command to run the placement:
+
+```bash
+run_placement
+```
+
+***CLOCK TREE SYNTHESIS***
+
+***POWER NETWORK DISTRIBUTION***
+
+
 ## Word of Thanks
 I would take this opportunity to sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
 
