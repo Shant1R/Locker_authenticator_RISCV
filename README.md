@@ -556,6 +556,8 @@ sed -i's/max_transition   :0.04/max_transition   :0.75'*/*.lib
 ```
 *OpenLane Interactive Flow:*
 
+***The openlane flow is performed on Emil Jayanth Lal's system.***
+
 ```bash
 make mount
 %./flow.tcl -interactive
@@ -564,6 +566,24 @@ make mount
 % run_synthesis; run_floorplan; run_placement; run_cts; gen_pdn; run_routing
 
 ```
+
+![Screenshot from 2023-11-14 13-17-10](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/d1206f14-e263-4925-88f8-918e229b217f)
+
+Completion of routing 
+
+![Screenshot from 2023-11-14 13-17-22](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/8eaea1dc-a4d7-42f0-9c2f-4c4e15d3e81b)
+
+Sign off steps 
+
+```bash
+run_magic
+run_magic_spice_export
+run_magic_drc
+run_antenna_check
+```
+
+![Screenshot from 2023-11-14 13-46-36](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/88a55c5f-eaa4-4b91-900d-5a363e030011)
+
 
 ## Word of Thanks
 I would take this opportunity to sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
