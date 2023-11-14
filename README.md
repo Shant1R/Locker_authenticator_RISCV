@@ -714,10 +714,16 @@ run_routing
 - Post Routing Reports
   
   -  Timing
- 
+
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/2a166a15-8430-4bae-b9ea-e512418ca475)
+
   -  Area
  
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/ff4cadde-06b1-45be-8760-13f277def0bd)
+ 
   -  Power
+
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/e4bdc3a3-d2e7-4f05-a09b-3395f700911f)
  
   -  Design Rule Check (DRC)
 
