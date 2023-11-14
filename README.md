@@ -610,7 +610,11 @@ run_synthesis
 run_floorplan
 ```
 
-- to view the floorplan on Magic
+- to view the floorplan on Magic from ```results/floorplan```
+
+```bash
+ magic -T ~/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read wrapper.def
+```
 
 ***PLACEMENT***
 
@@ -625,6 +629,16 @@ run_placement
 ```
 
 ***CLOCK TREE SYNTHESIS***
+
+Clock tree synteshsis is used to create the clock distribution network that is used to deliver the clock to all sequential elements. The main goal is to create a network with minimal skew across the chip. H-trees are a common network topology that is used to achieve this goal.
+
+The purpose of building a clock tree is enable the clock input to reach every element and to ensure a zero clock skew. H-tree is a common methodology followed in CTS.
+Following command is used to run CTS.
+
+```bash
+run_cts
+```
+
 
 ***POWER NETWORK DISTRIBUTION***
 
