@@ -613,8 +613,18 @@ run_floorplan
 - to view the floorplan on Magic from ```results/floorplan```
 
 ```bash
- magic -T ~/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read wrapper.def
+ magic -T ~/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read wrapper.def &
 ```
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/0713e283-106d-49a3-9bc0-f11bab45d481)
+
+- Core Area after floorplan
+
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/18eba386-cc1f-4d3e-a299-8415428cd6cc)
+
+- Die Area after floorplan
+
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/7d892f9b-6c5b-49e1-bc4f-849808ac5a9e)
+
 
 ***PLACEMENT***
 
@@ -628,6 +638,16 @@ run_floorplan
 run_placement
 ```
 
+- to view the placement on Magic from ```results/placement```
+
+```bash
+ magic -T ~/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read wrapper.def &
+```
+
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/6763b55d-9035-4153-adb7-fa9b1544b5a0)
+
+
+
 ***CLOCK TREE SYNTHESIS***
 
 Clock tree synteshsis is used to create the clock distribution network that is used to deliver the clock to all sequential elements. The main goal is to create a network with minimal skew across the chip. H-trees are a common network topology that is used to achieve this goal.
@@ -639,8 +659,71 @@ Following command is used to run CTS.
 run_cts
 ```
 
+- Timimg Report
+
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/39ac231d-b3a6-4e6a-bc34-3a659cb41f4a)
+
+- Area Report
+
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/ccaf0213-777a-4854-95c7-2141bcd67ad1)
+
+- Skew Report
+
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/d1baeba3-99a1-4b61-9435-25b951e42e38)
+
+- Power Report
+
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/3808c1c2-1070-4060-af5e-412e54f930e6)
+
 
 ***POWER NETWORK DISTRIBUTION***
+
+- The commmand to establish power distribution network is as follows
+
+```bash
+gen_pdn
+```
+
+***ROUTING***
+
+- Implements the interconnect system between standard cells using the remaining available metal layers after CTS and PDN generation. The routing is performed on routing grids to ensure minimal DRC errors.
+- OpenLANE uses the TritonRoute tool for routing. There are 2 stages of routing:
+  - Global Routing
+  - Detailed Routing
+
+- In Global Routing Routing region is divided into rectangle grids which are represented as course 3D routes (Fastroute tool).
+- In Detailed Finer grids and routing guides used to implement physical wiring (TritonRoute tool).
+
+- Run the following command to run the routing
+
+```bash
+run_routing
+```
+- The layout can be viewed using MAGIC in ```results/routing```
+
+```bash
+ magic -T ~/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read wrapper.def &
+```
+
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/bf1121d8-5196-4a59-b7ce-ea1dd2e92703)
+
+- Area of Design
+
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/74dc28ae-a53a-444c-b213-1ad8c6c9f81b)
+
+- Post Routing Reports
+  
+  -  Timing
+ 
+  -  Area
+ 
+  -  Power
+ 
+  -  Design Rule Check (DRC)
+
+![image](https://github.com/Shant1R/Locker_authenticator_RISCV/assets/59409568/a971d705-9e57-499d-82b7-012206d12555)
+
+
 
 
 ## Word of Thanks
