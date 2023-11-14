@@ -735,6 +735,8 @@ run_routing
 ## Word of Thanks
 I would take this opportunity to sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
 
+I would take this opportunity to Emil Jayanth Lal, for his assistance in the completion of the Physical Design under OpenLane flow.
+
 ## Acknowledgement
 - Kunal Ghosh, VSD Corp. Pvt. Ltd.
 - Skywater Foundry
@@ -742,12 +744,14 @@ I would take this opportunity to sciencerly thank Mr. Kunal Gosh(Founder/VSD) fo
 - Alwin Shaju, MTech, IIITB
 - Emil Jayanth Lal, MTech, IIITB
 - N Sai Sampath, MTech, IIITB
-- Mayank Kabra, iMtech, IIITB
+- Mayank Kabra, Founder, Chipcron Pvt.Ltd.
 
 ## Reference
 - https://github.com/The-OpenROAD-Project/OpenSTA.git
+- https://github.com/The-OpenROAD-Project/OpenLane
 - https://github.com/kunalg123
 - https://www.vsdiat.com
+- https://openlane.readthedocs.io/en/latest
 - https://github.com/SakethGajawada/RISCV-GNU
 
 
